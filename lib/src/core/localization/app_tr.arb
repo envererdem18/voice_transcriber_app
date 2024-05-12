@@ -1,0 +1,14 @@
+{
+  "turkish": "Türkçe",
+  "english": "İngilizce",
+  "pleaseSelectLanguage": "Lütfen dil seçiniz",
+  "settings": "Ayarlar",
+  "language": "Dil",
+  "theme": "Tema",
+  "themeOptions": "Tema Seçenekleri",
+  "supportedLanguages": "Desteklenen Diller",
+  "light": "Açık",
+  "dark": "Koyu",
+  "system": "Sistem",
+  "pleaseSelectALanguageFirst": "Lütfen önce bir dil seçiniz"
+}

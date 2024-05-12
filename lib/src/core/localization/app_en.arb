@@ -1,0 +1,14 @@
+{
+  "turkish": "Turkish",
+  "english": "English",
+  "pleaseSelectLanguage": "Please select a language",
+  "settings": "Settings",
+  "language": "Language",
+  "theme": "Theme",
+  "themeOptions": "Theme Options",
+  "supportedLanguages": "Supported Languages",
+  "light": "Light",
+  "dark": "Dark",
+  "system": "System Theme",
+  "pleaseSelectALanguageFirst": "Please select a language first"
+}
