@@ -30,6 +30,9 @@ dependencies:
 
   # Navigation
 
+  # Utils
+  record: ^5.0.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
