@@ -15,7 +15,7 @@ Dio dio(DioRef ref) {
     baseUrl: baseUrl,
     headers: {
       HttpHeaders.contentTypeHeader: 'multipart/form-data',
-      HttpHeaders.authorizationHeader: 'Bearer $key',
+      HttpHeaders.authorizationHeader: 'Bearer $openaiApiKey',
     },
   );
   dio.interceptors.add(LoggerInterceptor());
