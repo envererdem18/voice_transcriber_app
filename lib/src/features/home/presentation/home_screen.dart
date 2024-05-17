@@ -5,10 +5,10 @@ import 'package:voice_transcriber_app/src/common_widgets/buttons/play_pause_butt
 import 'package:voice_transcriber_app/src/core/extensions/build_context_extension.dart';
 import 'package:voice_transcriber_app/src/core/utils/async_value_ui.dart';
 import 'package:voice_transcriber_app/src/features/home/presentation/controller/home_state.dart';
-import 'package:voice_transcriber_app/src/features/settings/presentation/settings_screen.dart';
 
 import '../../../common_widgets/language_selector_widget.dart';
 import 'controller/home_controller.dart';
+import 'widgets/home_app_bar.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -25,20 +25,7 @@ class HomeScreen extends ConsumerWidget {
     final notifier = ref.read(homeControllerProvider.notifier);
     final state = ref.watch(homeControllerProvider);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Voice Transcriber'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const SettingsScreen()),
-              );
-            },
-          ),
-        ],
-      ),
+      appBar: const HomeAppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

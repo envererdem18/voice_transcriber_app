@@ -32,6 +32,7 @@ class _LanguageSelectorWidgetState extends State<LanguageSelectorWidget> {
           builder: (ctx) {
             return ListView(
               children: [
+                const Gap(16),
                 for (final country in supporttedCountries)
                   ListTile(
                     leading: CountryFlag(

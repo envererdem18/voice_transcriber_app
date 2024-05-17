@@ -16,7 +16,7 @@ class HomeController extends _$HomeController {
   }
 
   Future<void> startRecord() async {
-    clearText();
+    _clearText();
     print('Recording');
     state = const AsyncValue.loading();
   }
@@ -24,26 +24,26 @@ class HomeController extends _$HomeController {
   Future<void> stopRecord() async {
     state = await AsyncValue.guard(() async {
       print('Recorded');
-      final transcribedText = await transcribe();
+      final transcribedText = await _transcribe();
       await Future.delayed(const Duration(seconds: 2));
       print('Transcribed');
       return state.value!.copyWith(transcribedText: transcribedText);
     });
   }
 
-  Future<String> transcribe() async {
+  onLanguageSelected(Country country) {
+    _setLocale(Locale(country.name, ''));
+  }
+
+  Future<String> _transcribe() async {
     return 'Transcribed text';
   }
 
-  onLanguageSelected(Country country) {
-    setLocale(Locale(country.name, ''));
-  }
-
-  setLocale(Locale locale) {
+  _setLocale(Locale locale) {
     state = AsyncValue<HomeState>.data(state.value!.copyWith(locale: locale));
   }
 
-  clearText() => state = AsyncValue.data(
+  _clearText() => state = AsyncValue.data(
         HomeState(locale: state.value!.locale, transcribedText: null),
       );
 }
