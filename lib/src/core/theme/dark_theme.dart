@@ -9,4 +9,7 @@ ThemeData get darkTheme => ThemeData(
       listTileTheme: ListTileThemeData(
         selectedTileColor: Colors.grey[700],
       ),
+      progressIndicatorTheme: const ProgressIndicatorThemeData(
+        circularTrackColor: Colors.white,
+      ),
     );

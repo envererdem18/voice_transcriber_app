@@ -5,11 +5,13 @@ class PlayPauseButton extends StatefulWidget {
   final Function(bool isRecording)? onStatusChanged;
   final bool enabled;
   final String? warningMessage;
+  final bool isLoading;
   const PlayPauseButton({
     super.key,
     this.onStatusChanged,
     this.enabled = true,
     this.warningMessage,
+    this.isLoading = false,
   });
 
   @override
@@ -35,10 +37,12 @@ class _PlayPauseButtonState extends State<PlayPauseButton>
       width: context.screenWidth * 0.4,
       height: context.screenWidth * 0.4,
       child: IconButton.filled(
-        icon: AnimatedIcon(
-          icon: AnimatedIcons.play_pause,
-          progress: _animationController,
-        ),
+        icon: widget.isLoading
+            ? const CircularProgressIndicator()
+            : AnimatedIcon(
+                icon: AnimatedIcons.play_pause,
+                progress: _animationController,
+              ),
         iconSize: context.screenWidth * 0.2,
         onPressed: widget.enabled
             ? () => _handleOnPressed()
@@ -62,6 +66,7 @@ class _PlayPauseButtonState extends State<PlayPauseButton>
   }
 
   void _handleOnPressed() {
+    if (widget.isLoading) return;
     setState(() {
       isPlaying = !isPlaying;
       isPlaying

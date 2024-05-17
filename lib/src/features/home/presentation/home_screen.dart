@@ -37,6 +37,7 @@ class HomeScreen extends ConsumerWidget {
             PlayPauseButton(
               enabled: state.value?.locale != null,
               warningMessage: context.loc.pleaseSelectALanguageFirst,
+              isLoading: state.isLoading,
               onStatusChanged: notifier.onStatusChanged,
             ),
             const Gap(80),
