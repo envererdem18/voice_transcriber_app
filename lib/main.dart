@@ -7,3 +7,6 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const ProviderScope(child: MainApp()));
 }
+
+// TODO: check modal bottom sheets after gorouter
+// TODO: show loading indicator inside bottom sheet??

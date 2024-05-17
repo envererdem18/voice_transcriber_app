@@ -14,6 +14,9 @@ dependencies:
   gap: ^3.0.1
   dash_flags: ^0.1.1
 
+  # Networking
+  dio: ^5.4.3+1
+
   # State Management
   flutter_riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
