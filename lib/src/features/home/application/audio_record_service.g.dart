@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'home_controller.dart';
+part of 'audio_record_service.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$homeControllerHash() => r'd24d89591645cce696d983fdae4a1e1acd05b4cb';
+String _$audioRecordServiceHash() =>
+    r'612ab1308018a70917e443a0be94b0fb282003db';
 
-/// See also [HomeController].
-@ProviderFor(HomeController)
-final homeControllerProvider =
-    AutoDisposeAsyncNotifierProvider<HomeController, HomeState>.internal(
-  HomeController.new,
-  name: r'homeControllerProvider',
+/// See also [audioRecordService].
+@ProviderFor(audioRecordService)
+final audioRecordServiceProvider = Provider<AudioRecordService>.internal(
+  audioRecordService,
+  name: r'audioRecordServiceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$homeControllerHash,
+      : _$audioRecordServiceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$HomeController = AutoDisposeAsyncNotifier<HomeState>;
+typedef AudioRecordServiceRef = ProviderRef<AudioRecordService>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

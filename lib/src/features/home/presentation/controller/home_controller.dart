@@ -1,7 +1,10 @@
 import 'package:dash_flags/dash_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:voice_transcriber_app/src/features/home/application/audio_record_service.dart';
 import 'package:voice_transcriber_app/src/features/home/presentation/controller/home_state.dart';
+
+import '../../data/open_api_repository.dart';
 
 part 'home_controller.g.dart';
 
@@ -11,22 +14,20 @@ class HomeController extends _$HomeController {
   FutureOr<HomeState> build() => HomeState.initial();
 
   onStatusChanged(bool isRecording) {
-    print(isRecording ? 'Recording' : 'Stopped');
-    isRecording ? startRecord() : stopRecord();
+    isRecording ? startRecording() : stopRecording();
   }
 
-  Future<void> startRecord() async {
+  Future<void> startRecording() async {
     _clearText();
-    print('Recording');
     state = const AsyncValue.loading();
+    await ref.read(audioRecordServiceProvider).startRecording();
   }
 
-  Future<void> stopRecord() async {
+  Future<void> stopRecording() async {
     state = await AsyncValue.guard(() async {
-      print('Recorded');
+      await ref.read(audioRecordServiceProvider).stopRecording();
       final transcribedText = await _transcribe();
       await Future.delayed(const Duration(seconds: 2));
-      print('Transcribed');
       return state.value!.copyWith(transcribedText: transcribedText);
     });
   }
@@ -36,7 +37,7 @@ class HomeController extends _$HomeController {
   }
 
   Future<String> _transcribe() async {
-    return 'Transcribed text';
+    return await ref.read(openApiRepositoryProvider).transcribe();
   }
 
   _setLocale(Locale locale) {
