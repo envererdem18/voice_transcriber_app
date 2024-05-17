@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:voice_transcriber_app/src/core/extensions/build_context_extension.dart';
 
 class PlayPauseButton extends StatefulWidget {
-  final Function(bool isRecording)? status;
+  final Function(bool isRecording)? onStatusChanged;
   final bool enabled;
   final String? warningMessage;
   const PlayPauseButton({
     super.key,
-    this.status,
+    this.onStatusChanged,
     this.enabled = true,
     this.warningMessage,
   });
@@ -68,7 +68,7 @@ class _PlayPauseButtonState extends State<PlayPauseButton>
           ? _animationController.forward()
           : _animationController.reverse();
     });
-    widget.status?.call(isPlaying);
+    widget.onStatusChanged?.call(isPlaying);
   }
 
   @override
