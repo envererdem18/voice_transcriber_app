@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:voice_transcriber_app/src/core/network/dio_provider.dart';
@@ -9,7 +11,7 @@ class OpenApiRepository {
 
   OpenApiRepository(this.dio);
 
-  Future<String> transcribe() async {
+  Future<String> transcribe(File recordedFile) async {
     // try {
     //   final response = await dio.post(EndPoint.transcriptions.path);
     //   print(response.data);

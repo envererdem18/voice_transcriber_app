@@ -7,7 +7,7 @@ part of 'audio_record_service.dart';
 // **************************************************************************
 
 String _$audioRecordServiceHash() =>
-    r'612ab1308018a70917e443a0be94b0fb282003db';
+    r'608192877f8d903ef4d0c451a49d41559d16f355';
 
 /// See also [audioRecordService].
 @ProviderFor(audioRecordService)

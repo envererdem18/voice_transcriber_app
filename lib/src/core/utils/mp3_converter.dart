@@ -1,34 +1,18 @@
-// part 'date_formatter.g.dart';
-
-// @riverpod
-// DateFormat dateFormatter(DateFormatterRef ref) {
-//   /// Date formatter to be used in the app.
-//   return DateFormat.MMMEd();
-// }
-
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:path_provider/path_provider.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-Future<File> convertToMp3(List<Uint8List> data) async {
-  // Get the application documents directory
-  final Directory appDocumentsDir = await getTemporaryDirectory();
+import 'record_file.dart';
 
-  // Create a temporary file to store the MP3 data
-  final tempFile = File('${appDocumentsDir.path}/audio.mp3');
+part 'mp3_converter.g.dart';
 
-  // Open the file in write mode
-  final file = await tempFile.open(mode: FileMode.write);
-
-  // Write the data to the file
-  for (final chunk in data) {
-    await file.writeFrom(chunk);
-  }
-
-  // Close the file
-  await file.close();
-
-  // Return the converted MP3 file
-  return tempFile;
+@riverpod
+Future<File> convertToMp3(ConvertToMp3Ref ref) async {
+  final tempFile = await ref.read(recordFileProvider.future);
+  final bytes = await tempFile.readAsBytes();
+  final absolutePath = tempFile.path.split('.').first;
+  final mp3File = File('$absolutePath.mp3');
+  await mp3File.writeAsBytes(Uint8List.fromList(bytes));
+  return mp3File;
 }

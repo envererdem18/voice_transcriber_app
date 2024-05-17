@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:dash_flags/dash_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:voice_transcriber_app/src/features/home/application/audio_record_service.dart';
 import 'package:voice_transcriber_app/src/features/home/presentation/controller/home_state.dart';
 
+import '../../../../core/utils/mp3_converter.dart';
 import '../../data/open_api_repository.dart';
 
 part 'home_controller.g.dart';
@@ -26,7 +29,8 @@ class HomeController extends _$HomeController {
   Future<void> stopRecording() async {
     state = await AsyncValue.guard(() async {
       await ref.read(audioRecordServiceProvider).stopRecording();
-      final transcribedText = await _transcribe();
+      final mp3 = await ref.read(convertToMp3Provider.future);
+      final transcribedText = await _transcribe(mp3);
       await Future.delayed(const Duration(seconds: 2));
       return state.value!.copyWith(transcribedText: transcribedText);
     });
@@ -36,8 +40,8 @@ class HomeController extends _$HomeController {
     _setLocale(Locale(country.name, ''));
   }
 
-  Future<String> _transcribe() async {
-    return await ref.read(openApiRepositoryProvider).transcribe();
+  Future<String> _transcribe(File recordedFile) async {
+    return await ref.read(openApiRepositoryProvider).transcribe(recordedFile);
   }
 
   _setLocale(Locale locale) {
