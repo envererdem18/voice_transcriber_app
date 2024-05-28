@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:record/record.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -26,9 +27,9 @@ class AudioRecordService {
       )
           .onError(
         (error, stackTrace) {
-          // TODO: implement error handling
-          print('Error: $error');
-          print('Stacktrace: $stackTrace');
+          debugPrint('Error: $error');
+          debugPrint('Stacktrace: $stackTrace');
+          throw Exception(error);
         },
       );
     }

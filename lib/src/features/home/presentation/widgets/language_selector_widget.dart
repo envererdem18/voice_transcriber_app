@@ -1,6 +1,7 @@
 import 'package:dash_flags/dash_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:voice_transcriber_app/src/core/extensions/build_context_extension.dart';
 
 const supporttedCountries = [
@@ -70,7 +71,7 @@ class _LanguageSelectorWidgetState extends State<LanguageSelectorWidget> {
                               });
 
                               widget.onLanguageSelected?.call(country);
-                              Navigator.pop(context);
+                              context.pop();
                             },
                           ),
                       ],

@@ -9,5 +9,3 @@ void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const ProviderScope(child: MainApp()));
 }
-
-// TODO: check modal bottom sheets after gorouter

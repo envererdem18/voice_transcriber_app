@@ -4,9 +4,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:voice_transcriber_app/src/core/theme/dark_theme.dart';
 import 'package:voice_transcriber_app/src/core/theme/light_theme.dart';
-import 'package:voice_transcriber_app/src/features/home/presentation/home_screen.dart';
 
 import 'core/localization/localization_notifier.dart';
+import 'core/routing/app_router.dart';
 import 'core/theme/theme_mode_notifier.dart';
 
 class MainApp extends ConsumerWidget {
@@ -16,11 +16,13 @@ class MainApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final themeMode = ref.watch(themeModeProvider);
     final locale = ref.watch(localizationProvider);
-    return MaterialApp(
+    final goRouter = ref.watch(goRouterProvider);
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       themeMode: themeMode,
       theme: lightTheme,
       darkTheme: darkTheme,
+      routerConfig: goRouter,
       localizationsDelegates: const [
         L.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -32,16 +34,12 @@ class MainApp extends ConsumerWidget {
         Locale('tr', ''),
       ],
       locale: locale,
-      home: const HomeScreen(),
     );
   }
 }
 
 
 /// TODOS:
-/// 1. Implement route navigation for the settings screen
-/// 2. Implement route navigation for the supported languages screen
-/// 3. Implement route navigation for the theme options screen
 /// 9. Complete all comments
 /// 10. Write tests
 /// 11. Write documentation
