@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:voice_transcriber_app/src/core/localization/string_hardcoded.dart';
+import 'package:voice_transcriber_app/src/core/extensions/build_context_extension.dart';
 
 const kDialogDefaultKey = Key('dialog-default-key');
 
@@ -13,7 +13,7 @@ Future<bool?> showAlertDialog({
   required String title,
   String? content,
   String? cancelActionText,
-  String defaultActionText = 'OK',
+  String? defaultActionText,
 }) async {
   if (kIsWeb || !Platform.isIOS) {
     return showDialog(
@@ -30,7 +30,7 @@ Future<bool?> showAlertDialog({
             ),
           TextButton(
             key: kDialogDefaultKey,
-            child: Text(defaultActionText),
+            child: Text(defaultActionText ?? context.loc.ok),
             onPressed: () => Navigator.of(context).pop(true),
           ),
         ],
@@ -51,7 +51,7 @@ Future<bool?> showAlertDialog({
           ),
         CupertinoDialogAction(
           key: kDialogDefaultKey,
-          child: Text(defaultActionText),
+          child: Text(defaultActionText ?? context.loc.ok),
           onPressed: () => Navigator.of(context).pop(true),
         ),
       ],
@@ -69,11 +69,5 @@ Future<void> showExceptionAlertDialog({
       context: context,
       title: title,
       content: exception.toString(),
-      defaultActionText: 'OK'.hardcoded,
-    );
-
-Future<void> showNotImplementedAlertDialog({required BuildContext context}) =>
-    showAlertDialog(
-      context: context,
-      title: 'Not implemented'.hardcoded,
+      defaultActionText: context.loc.ok,
     );

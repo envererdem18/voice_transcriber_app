@@ -18,5 +18,6 @@
   "dark": "Koyu",
   "system": "Sistem",
   "pleaseSelectALanguageFirst": "Lütfen önce bir dil seçiniz",
-  "optiponalLanguageInfo": "*Bu isteğe bağlıdır, eğer bir dil seçmezseniz, Whisper AI dilinizi otomatik olarak algılayacaktır."
+  "optiponalLanguageInfo": "*Bu isteğe bağlıdır, eğer bir dil seçmezseniz, Whisper AI dilinizi otomatik olarak algılayacaktır.",
+  "ok": "Tamam"
 }

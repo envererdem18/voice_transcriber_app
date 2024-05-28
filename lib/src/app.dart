@@ -45,3 +45,7 @@ class MainApp extends ConsumerWidget {
 /// 9. Complete all comments
 /// 10. Write tests
 /// 11. Write documentation
+/// 
+/// Docs:
+///! obfuscation
+///
