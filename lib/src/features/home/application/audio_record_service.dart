@@ -35,12 +35,6 @@ class AudioRecordService {
   }
 
   Future<void> stopRecording() async => await _audioRecorder.stop();
-
-  // TODO: if you dont need, remove this method
-  Future<void> deleteRecording() async {
-    await _audioRecorder.cancel();
-    _audioRecorder.dispose();
-  }
 }
 
 @Riverpod(keepAlive: true)

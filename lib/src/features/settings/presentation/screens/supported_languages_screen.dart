@@ -11,16 +11,11 @@ class SupportedLanguagesScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedLanguage = ref.watch(localizationProvider);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.loc.supportedLanguages),
-      ),
+      appBar: AppBar(title: Text(context.loc.supportedLanguages)),
       body: Column(
         children: [
           ListTile(
-            leading: CountryFlag(
-              country: Country.us,
-              height: 20,
-            ),
+            leading: CountryFlag(country: Country.us, height: 20),
             selected: selectedLanguage.languageCode == 'en',
             title: Text(context.loc.english),
             onTap: () => ref
@@ -28,10 +23,7 @@ class SupportedLanguagesScreen extends ConsumerWidget {
                 .changeLanguage(Country.us),
           ),
           ListTile(
-            leading: CountryFlag(
-              country: Country.tr,
-              height: 20,
-            ),
+            leading: CountryFlag(country: Country.tr, height: 20),
             selected: selectedLanguage.languageCode == 'tr',
             title: Text(context.loc.turkish),
             onTap: () => ref

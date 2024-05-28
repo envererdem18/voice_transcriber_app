@@ -22,7 +22,12 @@ extension AsyncValueUI on AsyncValue {
         showModalBottomSheet(
           context: context,
           builder: (ctx) {
-            return Center(child: Text(value.transcribedText ?? ''));
+            return Center(
+                child: Text(
+              value.transcribedText ?? '',
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 20),
+            ));
           },
         );
       }

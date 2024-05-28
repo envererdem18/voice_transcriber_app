@@ -13,15 +13,25 @@ class OpenApiRepository {
 
   OpenApiRepository(this.dio);
 
-  Future<String> transcribe(File recordedFile) async {
+  Future<String> transcribe(
+    File recordedFile, {
+    String? targetLanguageCode,
+  }) async {
     try {
-      final response = await dio.post(EndPoint.transcriptions.path);
-      print(response.data);
+      FormData formData = FormData.fromMap({
+        'file': await MultipartFile.fromFile(recordedFile.path),
+        'model': 'whisper-1',
+        'response_format': 'text',
+        'language': targetLanguageCode,
+      });
+      final response = await dio.post(
+        EndPoint.transcriptions.path,
+        data: formData,
+      );
+      return response.data;
     } catch (e) {
-      print(e);
+      throw Exception('Failed to transcribe audio');
     }
-
-    return 'Transcribed text';
   }
 }
 

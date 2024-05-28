@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dash_flags/dash_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:voice_transcriber_app/src/core/utils/delay.dart';
+import 'package:voice_transcriber_app/src/core/extensions/local_extension.dart';
 import 'package:voice_transcriber_app/src/features/home/application/audio_record_service.dart';
 import 'package:voice_transcriber_app/src/features/home/presentation/controller/home_state.dart';
 
@@ -27,26 +27,27 @@ class HomeController extends _$HomeController {
   }
 
   Future<void> stopRecording() async {
-    await delay(true, 500);
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       await ref.read(audioRecordServiceProvider).stopRecording();
       final mp3 = await ref.read(convertToMp3Provider.future);
       final transcribedText = await _transcribe(mp3);
-      await Future.delayed(const Duration(seconds: 2));
       return state.value!.copyWith(transcribedText: transcribedText);
     });
   }
 
-  onLanguageSelected(Country country) {
-    _setLocale(Locale(country.name, ''));
+  onLanguageSelected(Country? country) {
+    _setLocale(country != null ? Locale(country.name, '') : null);
   }
 
   Future<String> _transcribe(File recordedFile) async {
-    return await ref.read(openApiRepositoryProvider).transcribe(recordedFile);
+    final isoCode = state.value!.locale?.isoCode;
+    return await ref
+        .read(openApiRepositoryProvider)
+        .transcribe(recordedFile, targetLanguageCode: isoCode);
   }
 
-  _setLocale(Locale locale) {
+  _setLocale(Locale? locale) {
     state = AsyncValue<HomeState>.data(state.value!.copyWith(locale: locale));
   }
 

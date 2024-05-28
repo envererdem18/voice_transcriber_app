@@ -1,7 +1,14 @@
 {
   "turkish": "Turkish",
   "english": "English",
-  "pleaseSelectLanguage": "Please select a language",
+  "spanish": "Spanish",
+  "french": "French",
+  "german": "German",
+  "italian": "Italian",
+  "portuguese": "Portuguese",
+  "russian": "Russian",
+  "japanese": "Japanese",
+  "selectSpeechLanguage": "Select speech language",
   "settings": "Settings",
   "language": "Language",
   "theme": "Theme",
@@ -10,5 +17,6 @@
   "light": "Light",
   "dark": "Dark",
   "system": "System Theme",
-  "pleaseSelectALanguageFirst": "Please select a language first"
+  "pleaseSelectALanguageFirst": "Please select a language first",
+  "optiponalLanguageInfo": "*This is optional, if you do not select a language, Whisper AI will detect your language automatically."
 }

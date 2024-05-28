@@ -6,7 +6,7 @@ part of 'mp3_converter.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$convertToMp3Hash() => r'4e5d4b89ff0c1dcf8bc870a151c579a6b7fa551b';
+String _$convertToMp3Hash() => r'78d729a6c5ac7c3733e2c7f92332e456f23099af';
 
 /// See also [convertToMp3].
 @ProviderFor(convertToMp3)

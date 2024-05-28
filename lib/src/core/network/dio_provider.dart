@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:voice_transcriber_app/src/core/network/constants.dart';
+import 'package:voice_transcriber_app/src/core/network/env/env.dart';
 
 import 'logger_interceptor.dart';
 
@@ -15,7 +16,7 @@ Dio dio(DioRef ref) {
     baseUrl: baseUrl,
     headers: {
       HttpHeaders.contentTypeHeader: 'multipart/form-data',
-      HttpHeaders.authorizationHeader: 'Bearer $openaiApiKey',
+      HttpHeaders.authorizationHeader: 'Bearer ${Env.openAiKey}',
     },
   );
   dio.interceptors.add(LoggerInterceptor());

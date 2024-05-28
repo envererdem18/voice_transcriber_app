@@ -3,8 +3,8 @@ import 'package:voice_transcriber_app/src/core/localization/string_hardcoded.dar
 
 import '../../../settings/presentation/settings_screen.dart';
 
-class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppBar({
+class HomeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
+  const HomeAppBarWidget({
     super.key,
   });
 

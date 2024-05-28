@@ -1,7 +1,14 @@
 {
   "turkish": "Türkçe",
   "english": "İngilizce",
-  "pleaseSelectLanguage": "Lütfen dil seçiniz",
+  "german": "Almanca",
+  "spanish": "İspanyolca",
+  "french": "Fransızca",
+  "italian": "İtalyanca",
+  "portuguese": "Portekizce",
+  "russian": "Rusça",
+  "japanese": "Japonca",
+  "selectSpeechLanguage": "Konuşma dili seçin",
   "settings": "Ayarlar",
   "language": "Dil",
   "theme": "Tema",
@@ -10,5 +17,6 @@
   "light": "Açık",
   "dark": "Koyu",
   "system": "Sistem",
-  "pleaseSelectALanguageFirst": "Lütfen önce bir dil seçiniz"
+  "pleaseSelectALanguageFirst": "Lütfen önce bir dil seçiniz",
+  "optiponalLanguageInfo": "*Bu isteğe bağlıdır, eğer bir dil seçmezseniz, Whisper AI dilinizi otomatik olarak algılayacaktır."
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:voice_transcriber_app/src/core/extensions/build_context_extension.dart';
 
-import '../../../../core/theme/theme_mode_controller.dart';
+import '../../../../core/theme/theme_mode_notifier.dart';
 
 class ThemeOptionsScreen extends ConsumerWidget {
   const ThemeOptionsScreen({super.key});

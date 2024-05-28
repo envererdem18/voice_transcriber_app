@@ -10,6 +10,13 @@ extension LocalizedBuildContext on BuildContext {
   String locLanguageFromCountry(Country country) => switch (country) {
         Country.tr => loc.turkish,
         Country.us => loc.english,
+        Country.de => loc.german,
+        Country.fr => loc.french,
+        Country.es => loc.spanish,
+        Country.it => loc.italian,
+        Country.pt => loc.portuguese,
+        Country.ru => loc.russian,
+        Country.jp => loc.japanese,
         _ => loc.english,
       };
 
@@ -17,6 +24,13 @@ extension LocalizedBuildContext on BuildContext {
   String locLanguageFromLocale(Locale locale) => switch (locale.languageCode) {
         'tr' => loc.turkish,
         'en' => loc.english,
+        'de' => loc.german,
+        'fr' => loc.french,
+        'es' => loc.spanish,
+        'it' => loc.italian,
+        'pt' => loc.portuguese,
+        'ru' => loc.russian,
+        'ja' => loc.japanese,
         _ => loc.english,
       };
 
