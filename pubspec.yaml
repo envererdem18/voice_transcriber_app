@@ -49,6 +49,15 @@ dev_dependencies:
   json_serializable: ^6.8.0
   envied_generator: ^0.5.4+1
 
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/icons/playstore.png"
+  image_path_ios: "assets/icons/appstore.png"
+
 flutter_gen:
   output: lib/gen/
   line_length: 80
@@ -62,3 +71,6 @@ flutter:
   # Enable generation of localized Strings from arb files.
   generate: true
 
+  assets:
+    - assets/images/
+    - assets/icons/

@@ -5,12 +5,14 @@ import 'package:voice_transcriber_app/src/features/home/presentation/home_screen
 import 'package:voice_transcriber_app/src/features/settings/presentation/screens/supported_languages_screen.dart';
 import 'package:voice_transcriber_app/src/features/settings/presentation/screens/theme_options_screen.dart';
 import 'package:voice_transcriber_app/src/features/settings/presentation/settings_screen.dart';
+import 'package:voice_transcriber_app/src/features/splash/splash_screen.dart';
 
 import 'not_found_screen.dart';
 
 part 'app_router.g.dart';
 
 enum AppRoute {
+  splash,
   home,
   settings,
   supportedLanguages,
@@ -22,15 +24,20 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>();
 @Riverpod(keepAlive: true)
 GoRouter goRouter(GoRouterRef ref) {
   return GoRouter(
-    initialLocation: '/home',
+    initialLocation: '/splash',
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: false,
     routes: [
       GoRoute(
+        path: '/splash',
+        name: AppRoute.splash.name,
+        builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
         parentNavigatorKey: _rootNavigatorKey,
         path: '/home',
         name: AppRoute.home.name,
-        pageBuilder: (context, state) => const MaterialPage(
+        pageBuilder: (context, state) => const NoTransitionPage(
           child: HomeScreen(),
         ),
         routes: [
