@@ -17,16 +17,26 @@ class HomeController extends _$HomeController {
   @override
   FutureOr<HomeState> build() => HomeState.initial();
 
+  /// Start or stop recording audio.
+  ///
+  /// * If [isRecording] is true, start recording audio.
+  /// * If [isRecording] is false, stop recording audio and transcribe the recorded audio.
   onStatusChanged(bool isRecording) {
-    isRecording ? startRecording() : stopRecording();
+    isRecording ? _startRecording() : _stopRecording();
   }
 
-  Future<void> startRecording() async {
+  /// Start recording audio.
+  Future<void> _startRecording() async {
     _clearText();
     await ref.read(audioRecordServiceProvider).startRecording();
   }
 
-  Future<void> stopRecording() async {
+  /// Stop recording audio and transcribe the recorded audio.
+  ///
+  /// * The recorded audio will be converted to an mp3 file.
+  /// * The mp3 file will be transcribed.
+  ///
+  Future<void> _stopRecording() async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       await ref.read(audioRecordServiceProvider).stopRecording();

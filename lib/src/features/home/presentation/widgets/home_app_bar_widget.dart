@@ -4,6 +4,11 @@ import 'package:voice_transcriber_app/src/core/localization/string_hardcoded.dar
 import 'package:voice_transcriber_app/src/core/routing/app_router.dart';
 
 class HomeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
+  /// A widget that displays the app bar of the home screen.
+  ///
+  /// * The app bar will display the title 'Voice Transcriber'.
+  /// * The app bar will have a settings button that navigates to the settings screen.
+  ///
   const HomeAppBarWidget({
     super.key,
   });

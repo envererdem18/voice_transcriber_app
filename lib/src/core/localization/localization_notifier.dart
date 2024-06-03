@@ -12,6 +12,11 @@ class LocalizationNotifier extends StateNotifier<Locale> {
       };
 }
 
+/// A provider that provides the current locale of the app.
+///
+/// * The initial locale will be 'en'.
+/// * The locale can be changed by calling the [changeLanguage] method.
+///
 final localizationProvider =
     StateNotifierProvider<LocalizationNotifier, Locale>(
   (ref) => LocalizationNotifier(),

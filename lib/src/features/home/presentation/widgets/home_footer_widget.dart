@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../../common_widgets/two_part_text.dart';
 
 class HomeFooterWidget extends StatelessWidget {
+  /// A widget that displays the footer of the home screen.
+  ///
+  /// * The footer will display the text 'Powered by Whisper AI'.
+  ///
   const HomeFooterWidget({
     super.key,
   });

@@ -11,6 +11,10 @@ import 'widgets/home_footer_widget.dart';
 import 'widgets/language_selector_widget.dart';
 
 class HomeScreen extends ConsumerWidget {
+  /// A widget that displays the home screen.
+  ///
+  /// * The home screen will display a language selector widget.
+  /// * The home screen will display a play/pause button.
   const HomeScreen({super.key});
 
   @override

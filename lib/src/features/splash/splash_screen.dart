@@ -22,6 +22,11 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
+      /// Do some business logic here
+      /// For example, check if the user is logged in
+      /// If the user is logged in, navigate to the home screen
+      /// If the user is not logged in, navigate to the login screen
+      /// For now, we will navigate to the home screen
       if (mounted) context.goNamed(AppRoute.home.name);
     });
   }

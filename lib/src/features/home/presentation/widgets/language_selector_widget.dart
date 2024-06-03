@@ -16,10 +16,13 @@ const supporttedCountries = [
   Country.jp,
 ];
 
-/// A widget that allows the user to [select a language] to speak and transcribe
 class LanguageSelectorWidget extends StatefulWidget {
   final Function(Country? country)? onLanguageSelected;
   final bool enabled;
+
+  /// A widget that allows the user to [select a language] to speak and transcribe
+  ///
+  ///
   const LanguageSelectorWidget({
     super.key,
     this.onLanguageSelected,

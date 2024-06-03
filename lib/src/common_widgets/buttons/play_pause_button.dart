@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:voice_transcriber_app/src/core/extensions/build_context_extension.dart';
 
 class PlayPauseButton extends StatefulWidget {
+  /// A callback that will be called when the button is pressed.
   final Function(bool isRecording)? onStatusChanged;
   final bool enabled;
-  final String? warningMessage;
   final bool isLoading;
+
+  /// A widget that displays a play/pause button.
+  ///
+  /// The button will display a loading indicator if [isLoading] is true.
+  /// The button will animate between the play and pause icons.
+  ///
+  /// The [onStatusChanged] callback will be called when the button is pressed.
+  /// The callback will receive a boolean value indicating the current status of the button.
   const PlayPauseButton({
     super.key,
     this.onStatusChanged,
     this.enabled = true,
-    this.warningMessage,
     this.isLoading = false,
   });
 
@@ -44,23 +51,7 @@ class _PlayPauseButtonState extends State<PlayPauseButton>
                 progress: _animationController,
               ),
         iconSize: context.screenWidth * 0.2,
-        onPressed: widget.enabled
-            ? () => _handleOnPressed()
-            : () {
-                if (widget.warningMessage != null) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        widget.warningMessage!,
-                        style: context.textTheme.bodyLarge!.copyWith(
-                          color: Colors.white,
-                        ),
-                      ),
-                      backgroundColor: Colors.redAccent,
-                    ),
-                  );
-                }
-              },
+        onPressed: widget.enabled ? () => _handleOnPressed() : null,
       ),
     );
   }

@@ -13,6 +13,11 @@ class OpenApiRepository {
 
   OpenApiRepository(this.dio);
 
+  /// Transcribe an audio file.
+  ///
+  /// * The [recordedFile] is the audio file to transcribe.
+  /// * The [targetLanguageCode] is the language code to transcribe the audio to.
+  ///
   Future<String> transcribe(
     File recordedFile, {
     String? targetLanguageCode,

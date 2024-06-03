@@ -6,6 +6,7 @@ import '../../common_widgets/alert_dialogs.dart';
 import '../../features/home/presentation/controller/home_state.dart';
 
 extension AsyncValueUI on AsyncValue {
+  /// Show an alert dialog if the async value has an error.
   void showAlertDialogOnError(BuildContext context) {
     if (!isLoading && hasError) {
       showExceptionAlertDialog(
@@ -16,6 +17,8 @@ extension AsyncValueUI on AsyncValue {
     }
   }
 
+  /// Show the transcribed text in a modal bottom sheet.
+  /// The transcribed text will be shown if the async value is a [HomeState] and the transcribed text is not null.
   void showTranscribedText(BuildContext context) {
     if (this is AsyncData<HomeState>) {
       if (value.transcribedText != null) {

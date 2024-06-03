@@ -10,6 +10,15 @@ part 'audio_record_service.g.dart';
 
 class AudioRecordService {
   final Ref ref;
+
+  /// A service that records audio.
+  ///
+  /// * The [ref] is the reference to the current provider.
+  ///
+  /// The service uses the [AudioRecorder] to record audio.
+  /// The recorded audio will be saved to a temporary file.
+  /// The temporary file will be provided by the [recordFileProvider].
+  ///
   AudioRecordService(this.ref);
 
   final AudioRecorder _audioRecorder = AudioRecorder();
