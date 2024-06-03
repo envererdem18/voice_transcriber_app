@@ -8,7 +8,7 @@ part 'record_file.g.dart';
 @riverpod
 Future<File> recordFile(RecordFileRef ref) async {
   // Get the temporary directory
-  final Directory tempDir = await getTemporaryDirectory();
+  final Directory tempDir = await getApplicationCacheDirectory();
 
   // Create a temporary file to store the MP3 data and return
   return File('${tempDir.path}/audio.wav');

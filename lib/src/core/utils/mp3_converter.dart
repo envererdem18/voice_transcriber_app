@@ -11,8 +11,7 @@ part 'mp3_converter.g.dart';
 Future<File> convertToMp3(ConvertToMp3Ref ref) async {
   final tempFile = await ref.read(recordFileProvider.future);
   final bytes = await tempFile.readAsBytes();
-  final absolutePath = tempFile.path.split('.').first;
-  final mp3File = File('$absolutePath.mp3');
+  final mp3File = File(tempFile.path.replaceFirst('wav', 'mp3'));
   await mp3File.writeAsBytes(Uint8List.fromList(bytes));
   return mp3File;
 }

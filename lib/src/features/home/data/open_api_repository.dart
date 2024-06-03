@@ -30,7 +30,7 @@ class OpenApiRepository {
       );
       return response.data;
     } catch (e) {
-      throw Exception('Failed to transcribe audio');
+      throw Exception('Failed to transcribe audio: $e');
     }
   }
 }

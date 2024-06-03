@@ -48,7 +48,10 @@ class HomeController extends _$HomeController {
   }
 
   _setLocale(Locale? locale) {
-    state = AsyncValue<HomeState>.data(state.value!.copyWith(locale: locale));
+    state = AsyncValue<HomeState>.data(state.value!.copyWith(
+      locale: locale,
+      transcribedText: null,
+    ));
   }
 
   _clearText() => state = AsyncValue.data(
