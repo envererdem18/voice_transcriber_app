@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:voice_transcriber_app/src/core/constants/app_constants.dart';
 import 'package:voice_transcriber_app/src/core/theme/dark_theme.dart';
 import 'package:voice_transcriber_app/src/core/theme/light_theme.dart';
 
@@ -23,16 +22,8 @@ class MainApp extends ConsumerWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       routerConfig: goRouter,
-      localizationsDelegates: const [
-        L.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('en', ''),
-        Locale('tr', ''),
-      ],
+      localizationsDelegates: localizationsDelegates,
+      supportedLocales: supportedLocales,
       locale: locale,
     );
   }
@@ -40,7 +31,6 @@ class MainApp extends ConsumerWidget {
 
 
 /// TODOS:
-/// 9. Complete all comments
 /// 10. Write tests
 /// 11. Write documentation
 /// 
