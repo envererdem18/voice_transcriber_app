@@ -50,7 +50,7 @@ class _LanguageSelectorWidgetState extends State<LanguageSelectorWidget> {
                       children: [
                         ListTile(
                           leading: const Icon(Icons.language),
-                          title: const Text('Auto Detect'),
+                          title: Text(context.loc.autoDetect),
                           onTap: () {
                             setState(() {
                               _selectedCountry = null;

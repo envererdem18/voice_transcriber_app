@@ -19,5 +19,6 @@
   "system": "System Theme",
   "pleaseSelectALanguageFirst": "Please select a language first",
   "optiponalLanguageInfo": "*This is optional, if you do not select a language, Whisper AI will detect your language automatically.",
-  "ok": "OK"
+  "ok": "OK",
+  "autoDetect": "Auto Detect"
 }

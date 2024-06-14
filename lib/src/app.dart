@@ -28,12 +28,3 @@ class MainApp extends ConsumerWidget {
     );
   }
 }
-
-
-/// TODOS:
-/// 10. Write tests
-/// 11. Write documentation
-/// 
-/// Docs:
-///! obfuscation
-///
